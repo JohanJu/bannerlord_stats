@@ -8,13 +8,18 @@ def get_items():
     weapons = xml_item["CraftedItem"]
     itemd = {}
     for a in armor:
+        a["@name"] = a["@name"].split("}")[1]
         try:
-            itemd[a["@id"]] = a["ItemComponent"]["Armor"]["@material_type"]
+            itemd[a["@id"]] = {"text": a["ItemComponent"]["Armor"]["@material_type"], "tip": json.dumps(a)}
         except:
-            pass
+            try:
+                itemd[a["@id"]] = {"text": a["ItemComponent"]["Weapon"]["@weapon_class"], "tip": json.dumps(a)}
+            except:
+                pass
     for w in weapons:
+        w["@name"] = w["@name"].split("}")[1]
         try:
-            itemd[w["@id"]] = w["@name"].split("}")[1]
+            itemd[w["@id"]] = {"text": w["@crafting_template"], "tip": json.dumps(w)}
         except:
             pass
     return itemd
@@ -33,12 +38,15 @@ def get_chars():
                 for s in xc["skills"]["skill"]:
                     skills[s["@id"]] = s["@value"]
                 equipment = {}
-                for e in xc["equipmentSet"][0]["equipment"] if isinstance(xc["equipmentSet"], list) else xc["equipmentSet"]["equipment"]:
-                    equipment[e["@slot"]] = e["@id"].split(".")[1]
-                    if "Horse" in e["@slot"]:
-                        raise
                 horse = ""
                 harness = ""
+                for e in xc["equipmentSet"][0]["equipment"] if isinstance(xc["equipmentSet"], list) else xc["equipmentSet"]["equipment"]:
+                    equipment[e["@slot"]] = e["@id"].split(".")[1]
+                    if "Horse" == e["@slot"]:
+
+                        horse = e["@id"].split(".")[1]
+                    elif "HorseHarness" == e["@slot"]:
+                        harness = e["@id"].split(".")[1]
                 if "equipment" in xc:
                     for e in xc["equipment"]:
                         if e["@slot"] == "Horse":

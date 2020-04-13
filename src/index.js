@@ -6,10 +6,10 @@ import data from './data.json';
 import { } from './example.scss';
 
 const keys = ['id', 'group', 'lvl', 'culture',
-              'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg',
-              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
-              'horse', 'harness'
-              ]
+  'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg',
+  'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
+  'horse', 'harness'
+]
 
 class SimpleExample extends Component {
   constructor(props) {
@@ -32,7 +32,13 @@ class SimpleExample extends Component {
     for (let i = 0; i < chars.length; i++) {
       let td = []
       for (let j = 0; j < keys.length; j++) {
-        td.push(<td className="cell">{chars[i][keys[j]]}</td>)
+        let elm = chars[i][keys[j]]
+        if (elm instanceof Object) {
+          elm = <div class="tooltip">{elm.text}
+            <span class="tooltiptext">{elm.tip}</span>
+          </div>
+        }
+        td.push(<td className="cell">{elm}</td>)
       }
       tr.push(<tr>{td}</tr>)
     }
@@ -60,7 +66,7 @@ class SimpleExample extends Component {
 }
 
 ReactDOM.render(
-  [<div>v1.1.0</div>,
+  [<div> v1.1.0</div >,
   <a href={'https://github.com/JohanJu/bannerlord_stats'}>Github</a>,
   <SimpleExample />],
   document.getElementById('root')
