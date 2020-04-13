@@ -6,8 +6,9 @@ import data from './data.json';
 import { } from './example.scss';
 
 const keys = ['id', 'group', 'lvl', 'culture', 'horse', 'harness',
-              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
-              'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg']
+              'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg',
+              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing'
+              ]
 
 class SimpleExample extends Component {
   constructor(props) {
