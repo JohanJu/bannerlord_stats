@@ -4,10 +4,10 @@ import json
 def get_items():
     with open("raw_data/spitems.xml") as fp:
         xml_item = xmltodict.parse(fp.read())["Items"]
-    armor = xml_item["Item"]
-    weapons = xml_item["CraftedItem"]
+    item = xml_item["Item"]
+    crafted = xml_item["CraftedItem"]
     itemd = {}
-    for a in armor:
+    for a in item:
         a["@name"] = a["@name"].split("}")[1]
         try:
             itemd[a["@id"]] = {"text": a["ItemComponent"]["Armor"]["@material_type"], "tip": json.dumps(a)}
@@ -15,8 +15,12 @@ def get_items():
             try:
                 itemd[a["@id"]] = {"text": a["ItemComponent"]["Weapon"]["@weapon_class"], "tip": json.dumps(a)}
             except:
-                pass
-    for w in weapons:
+                try:
+                    if "Horse" in a["ItemComponent"]:
+                        itemd[a["@id"]] = {"text": a["@name"], "tip": json.dumps(a)}
+                except:
+                    pass
+    for w in crafted:
         w["@name"] = w["@name"].split("}")[1]
         try:
             itemd[w["@id"]] = {"text": w["@crafting_template"], "tip": json.dumps(w)}
@@ -43,7 +47,6 @@ def get_chars():
                 for e in xc["equipmentSet"][0]["equipment"] if isinstance(xc["equipmentSet"], list) else xc["equipmentSet"]["equipment"]:
                     equipment[e["@slot"]] = e["@id"].split(".")[1]
                     if "Horse" == e["@slot"]:
-
                         horse = e["@id"].split(".")[1]
                     elif "HorseHarness" == e["@slot"]:
                         harness = e["@id"].split(".")[1]
@@ -53,14 +56,14 @@ def get_chars():
                             horse = e["@id"].split(".")[1]
                         elif e["@slot"] == "HorseHarness":
                             harness = e["@id"].split(".")[1]
+                equipment["horse"] = horse
+                equipment["harness"] = harness
                 chars.append({"id": xc["@id"],
                             "group": xc["@default_group"],
                             "lvl": xc["@level"],
                             "culture": xc["@culture"].split(".")[1],
                             "skills": skills,
                             "equipment": equipment,
-                            "horse": horse,
-                            "harness": harness
                             })
         except:
             pass
@@ -72,9 +75,9 @@ chars = get_chars()
 rows = []
 for c in chars:
     row = {}
-    for k in ['id', 'group', 'lvl', 'culture', 'horse', 'harness']:
+    for k in ['id', 'group', 'lvl', 'culture']:
         row[k] = c[k]
-    for k in ['Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg']:
+    for k in ['Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg', 'horse', 'harness']:
         # row[k] = c["equipment"][k] if k in c["equipment"] else ""
         if k in c["equipment"]:
             if c["equipment"][k] in itemd:
