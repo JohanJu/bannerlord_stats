@@ -1,17 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import TableFilter from 'react-table-filter';
+import "react-table-filter/lib/styles.css";
+import data from './data.json';
+import { } from './example.scss';
+
+const keys = ['id', 'group', 'lvl', 'culture', 'horse', 'harness',
+              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
+              'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg']
+
+class SimpleExample extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      'episodes': data,
+    };
+    this._filterUpdated = this._filterUpdated.bind(this);
+  }
+
+  _filterUpdated(newData, filtersObject) {
+    this.setState({
+      'episodes': newData,
+    });
+  }
+
+  render() {
+    const chars = this.state.episodes;
+    let tr = []
+    for (let i = 0; i < chars.length; i++) {
+      let td = []
+      for (let j = 0; j < keys.length; j++) {
+        td.push(<td className="cell">{chars[i][keys[j]]}</td>)
+      }
+      tr.push(<tr>{td}</tr>)
+    }
+    let th = []
+    for (let i = 0; i < keys.length; i++) {
+      th.push(<th key={keys[i]} filterkey={keys[i]} className={keys[i]}>{keys[i]}</th>)
+    }
+    return (
+      <div>
+        <table className="basic-table">
+          <thead>
+            <TableFilter
+              rows={chars}
+              onFilterUpdate={this._filterUpdated}>
+              {th}
+            </TableFilter>
+          </thead>
+          <tbody>
+            {tr}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <SimpleExample />,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
