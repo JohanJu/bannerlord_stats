@@ -11,6 +11,8 @@ const keys = ['id', 'group', 'lvl', 'culture',
   'horse', 'harness'
 ]
 
+const nof = ['Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg', 'horse', 'harness']
+
 class SimpleExample extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +30,11 @@ class SimpleExample extends Component {
 
   render() {
     const chars = this.state.episodes;
+    let c2 = []
     let tr = []
     for (let i = 0; i < chars.length; i++) {
       let td = []
+      let cc2 = Object.assign({}, chars[i])
       for (let j = 0; j < keys.length; j++) {
         let elm = chars[i][keys[j]]
         if (elm instanceof Object) {
@@ -39,12 +43,20 @@ class SimpleExample extends Component {
           </div>
         }
         td.push(<td className="cell">{elm}</td>)
+        if (cc2[keys[j]] instanceof Object) {
+          cc2[keys[j]] = cc2[keys[j]].text
+        }
       }
+      c2.push(cc2)
       tr.push(<tr>{td}</tr>)
     }
     let th = []
     for (let i = 0; i < keys.length; i++) {
-      th.push(<th key={keys[i]} filterkey={keys[i]} className={keys[i]}>{keys[i]}</th>)
+      if (nof.includes(keys[i])) {
+        th.push(<th key={keys[i]} className={keys[i]}>{keys[i]}</th>)
+      } else {
+        th.push(<th key={keys[i]} filterkey={keys[i]} className={keys[i]}>{keys[i]}</th>)
+      }
     }
     return (
       <div>
