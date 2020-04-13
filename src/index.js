@@ -5,9 +5,10 @@ import "react-table-filter/lib/styles.css";
 import data from './data.json';
 import { } from './example.scss';
 
-const keys = ['id', 'group', 'lvl', 'culture', 'horse', 'harness',
+const keys = ['id', 'group', 'lvl', 'culture',
               'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg',
-              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing'
+              'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
+              'horse', 'harness'
               ]
 
 class SimpleExample extends Component {
