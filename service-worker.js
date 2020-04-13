@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/bannerlord_stats/precache-manifest.bd8499ae58abc2b0b2c69fc51b8724b1.js"
+  "/bannerlord_stats/precache-manifest.33a6d107ffdc8def9d25e6a37150b767.js"
 );
 
 self.addEventListener('message', (event) => {
