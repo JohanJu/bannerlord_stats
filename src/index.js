@@ -59,6 +59,8 @@ class SimpleExample extends Component {
 }
 
 ReactDOM.render(
-  <SimpleExample />,
+  [<div>v1.1.0</div>,
+  <a href={'https://github.com/JohanJu/bannerlord_stats'}>Github</a>,
+  <SimpleExample />],
   document.getElementById('root')
 );
