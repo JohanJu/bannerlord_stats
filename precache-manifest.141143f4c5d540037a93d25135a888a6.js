@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b54903ee9888f5d44d0579cf79b77670",
+    "revision": "19860e6baa6067f3e2c51d8a90818f6b",
     "url": "/bannerlord_stats/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bannerlord_stats/static/css/2.a13b8274.chunk.css"
   },
   {
-    "revision": "1ef43208a34e882afec8",
+    "revision": "0bbf822304d7774c2888",
     "url": "/bannerlord_stats/static/css/main.b45018ec.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bannerlord_stats/static/js/2.31bb9ac4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1ef43208a34e882afec8",
-    "url": "/bannerlord_stats/static/js/main.4edc48f3.chunk.js"
+    "revision": "0bbf822304d7774c2888",
+    "url": "/bannerlord_stats/static/js/main.ca6c9960.chunk.js"
   },
   {
     "revision": "0449891592becf5a42fd",

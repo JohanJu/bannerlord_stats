@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bannerlord_stats/static/css/main.b45018ec.chunk.css",
-    "main.js": "/bannerlord_stats/static/js/main.4edc48f3.chunk.js",
-    "main.js.map": "/bannerlord_stats/static/js/main.4edc48f3.chunk.js.map",
+    "main.js": "/bannerlord_stats/static/js/main.ca6c9960.chunk.js",
+    "main.js.map": "/bannerlord_stats/static/js/main.ca6c9960.chunk.js.map",
     "runtime-main.js": "/bannerlord_stats/static/js/runtime-main.2a0b4713.js",
     "runtime-main.js.map": "/bannerlord_stats/static/js/runtime-main.2a0b4713.js.map",
     "static/css/2.a13b8274.chunk.css": "/bannerlord_stats/static/css/2.a13b8274.chunk.css",
     "static/js/2.31bb9ac4.chunk.js": "/bannerlord_stats/static/js/2.31bb9ac4.chunk.js",
     "static/js/2.31bb9ac4.chunk.js.map": "/bannerlord_stats/static/js/2.31bb9ac4.chunk.js.map",
     "index.html": "/bannerlord_stats/index.html",
-    "precache-manifest.d2297500104a00720eacfc8e98f693d6.js": "/bannerlord_stats/precache-manifest.d2297500104a00720eacfc8e98f693d6.js",
+    "precache-manifest.141143f4c5d540037a93d25135a888a6.js": "/bannerlord_stats/precache-manifest.141143f4c5d540037a93d25135a888a6.js",
     "service-worker.js": "/bannerlord_stats/service-worker.js",
     "static/css/2.a13b8274.chunk.css.map": "/bannerlord_stats/static/css/2.a13b8274.chunk.css.map",
     "static/css/main.b45018ec.chunk.css.map": "/bannerlord_stats/static/css/main.b45018ec.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.a13b8274.chunk.css",
     "static/js/2.31bb9ac4.chunk.js",
     "static/css/main.b45018ec.chunk.css",
-    "static/js/main.4edc48f3.chunk.js"
+    "static/js/main.ca6c9960.chunk.js"
   ]
 }
