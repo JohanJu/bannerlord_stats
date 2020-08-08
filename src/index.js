@@ -6,7 +6,7 @@ import data from './data.json';
 import { } from './example.scss';
 
 const keys = ['id', 'group', 'lvl', 'culture',
-  'Item0', 'Item1', 'Item2', 'Item3', 'Head', 'Cape', 'Body', 'Gloves', 'Leg',
+  'Item0', 'Item1', 'Item2', 'Item3', 'head', 'body', 'arm', 'leg',
   'Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing',
   'horse', 'harness'
 ]
@@ -78,7 +78,8 @@ class SimpleExample extends Component {
 }
 
 ReactDOM.render(
-  [<div> v1.1.0</div >,
+  [<a href={'https://www.nexusmods.com/mountandblade2bannerlord/mods/1970'}>v1.4.2 with Fixed Troops</a>,
+  <br />,
   <a href={'https://github.com/JohanJu/bannerlord_stats'}>Github</a>,
   <SimpleExample />],
   document.getElementById('root')

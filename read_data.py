@@ -86,6 +86,16 @@ for c in chars:
                 row[k] = c["equipment"][k]
         else:
             row[k] = ""
+    armor = {"head": 0, "body": 0, "arm": 0, "leg": 0}
+    for k in ['Head', 'Cape', 'Body', 'Gloves', 'Leg']:
+        if k in c["equipment"]:
+            if c["equipment"][k] in itemd:
+                a = json.loads(itemd[c["equipment"][k]]["tip"])["ItemComponent"]["Armor"]
+                for aa in armor:
+                    if f"@{aa}_armor" in a:
+                        armor[aa] += int(a[f"@{aa}_armor"])
+    for a in armor:
+        row[a] = str(armor[a])
     for k in ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing']:
         row[k] = c["skills"][k]
     rows.append(row)
